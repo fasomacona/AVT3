@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5. Caso práctico | Visualización de datos</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters: [{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Tema 3: Visualización de datos</h1>
+      <p>3.4 Caso práctico</p>
+    </div>
+  </header>
+
+  <nav>
+    <div class="container">
+      <a href="index.html">Inicio</a>
+      <a href="01-introduccion.html">1. Introducción</a>
+      <a href="02-proyeccion-lineal.html">2. Proyección lineal</a>
+      <a href="03-proyeccion-no-lineal.html">3. Proyección no lineal</a>
+      <a href="04-periodicos-dashboards.html">4. Periódicos y tableros</a>
+      <a href="05-caso-practico.html" class="active">5. Caso práctico</a>
+      <a href="ejercicios/ejercicios-manuales.html">Ejercicios</a>
+    </div>
+  </nav>
+
+  <main>
+    <h2>Objetivo del caso</h2>
+    <p>
+      Integrar las técnicas del tema en un flujo reproducible sobre un dataset multivariado
+      (p. ej. <code>iris</code>, <code>penguins</code> o un CSV de negocio).
+    </p>
+
+    <h2>Pipeline recomendado</h2>
+    <ol>
+      <li><strong>Carga y limpieza:</strong> tipos, NA, outliers evidentes.</li>
+      <li><strong>EDA univariada y bivariada:</strong> histogramas, boxplots, correlaciones, pairplot.</li>
+      <li><strong>Estandarización</strong> de variables numéricas para PCA/MDS.</li>
+      <li><strong>PCA:</strong> varianza explicada, scores PC1–PC2 coloreados por categoría, loadings.</li>
+      <li><strong>MDS:</strong> mapa 2D a partir de distancias euclidianas; comparar con PCA.</li>
+      <li><strong>(Opcional) t-SNE:</strong> explorar clusters locales; documentar perplexity y semilla.</li>
+      <li><strong>Serie o patrón periódico</strong> (si hay variable temporal): línea + espectro básico.</li>
+      <li><strong>Mini-dashboard:</strong> 3–5 gráficos clave con un mensaje conjunto.</li>
+      <li><strong>Conclusiones:</strong> qué estructura se vio, limitaciones, siguientes preguntas.</li>
+    </ol>
+
+    <h2>Preguntas guía para el informe</h2>
+    <ul>
+      <li>¿Cuánta varianza explican los dos primeros componentes?</li>
+      <li>¿Los grupos etiquetados se separan en el plano PCA/MDS?</li>
+      <li>¿Qué variables empujan PC1 y PC2?</li>
+      <li>¿t-SNE cambia la lectura de los grupos? ¿Por qué podría diferir?</li>
+      <li>Si hay estacionalidad, ¿qué periodo domina?</li>
+      <li>¿Qué decisión de negocio o investigación sugiere el tablero?</li>
+    </ul>
+
+    <h2>Entregables sugeridos</h2>
+    <div class="card success">
+      <ul style="margin-bottom:0;">
+        <li>Notebook ejecutado (HTML o .ipynb) con código y figuras.</li>
+        <li>1 página de conclusiones en lenguaje claro (sin jerga innecesaria).</li>
+        <li>Captura o sección de “tablero” con KPIs + 2–3 gráficos.</li>
+      </ul>
+    </div>
+
+    <div class="nota">
+      El notebook <code>practica_visualizacion.ipynb</code> implementa el esqueleto de este caso
+      con datos de ejemplo listos para adaptar.
+    </div>
+
+    <p style="margin-top:2rem;">
+      <a class="btn btn-outline" href="04-periodicos-dashboards.html">← Anterior</a>
+      <a class="btn" href="ejercicios/ejercicios-manuales.html">Ir a Ejercicios →</a>
+    </p>
+  </main>
+
+  <footer>
+    <p>Material generado para la asignatura GAD-2401 · Uso educativo</p>
+  </footer>
+</body>
+</html>

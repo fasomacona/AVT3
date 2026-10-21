@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4. Periódicos y tableros | Visualización de datos</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters: [{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Tema 3: Visualización de datos</h1>
+      <p>3.3 Visualización de datos periódicos y tableros</p>
+    </div>
+  </header>
+
+  <nav>
+    <div class="container">
+      <a href="index.html">Inicio</a>
+      <a href="01-introduccion.html">1. Introducción</a>
+      <a href="02-proyeccion-lineal.html">2. Proyección lineal</a>
+      <a href="03-proyeccion-no-lineal.html">3. Proyección no lineal</a>
+      <a href="04-periodicos-dashboards.html" class="active">4. Periódicos y tableros</a>
+      <a href="05-caso-practico.html">5. Caso práctico</a>
+      <a href="ejercicios/ejercicios-manuales.html">Ejercicios</a>
+    </div>
+  </nav>
+
+  <main>
+    <h2>Datos periódicos / estacionales</h2>
+    <p>
+      Muchas series temporales muestran patrones que se repiten: diarios, semanales, anuales.
+      Visualizarlos bien implica mostrar <strong>el tiempo</strong>, <strong>el ciclo</strong> y las
+      <strong>desviaciones</strong> respecto al patrón esperado.
+    </p>
+    <ul>
+      <li>Líneas de serie temporal con bandas de estacionalidad.</li>
+      <li>Gráficos estacionales (año vs mes, hora del día, día de la semana).</li>
+      <li>Heatmaps de calendario (actividad por día).</li>
+      <li>Descomposición: tendencia + estacionalidad + residuo.</li>
+    </ul>
+
+    <h2>Análisis espectral (idea básica)</h2>
+    <p>
+      El <strong>análisis espectral</strong> descompone una señal en frecuencias.
+      La <strong>transformada de Fourier (DFT/FFT)</strong> revela qué periodos dominan la serie.
+    </p>
+    <div class="math-block">
+      $$ X(f) = \sum_{t=0}^{N-1} x_t\, e^{-i 2\pi f t / N} $$
+    </div>
+    <p>
+      En visualización se usa el <strong>espectro de potencia</strong> (periodo vs magnitud)
+      para identificar ciclos ocultos (p. ej. periodo de 7 días en tráfico web).
+    </p>
+    <div class="card highlight">
+      <strong>Flujo típico:</strong> graficar la serie → descomponer o aplicar FFT → marcar frecuencias
+      dominantes → validar en el dominio temporal (¿el ciclo tiene sentido de negocio?).
+    </div>
+
+    <h2>Construcción de tableros (dashboards)</h2>
+    <p>
+      Un <strong>dashboard</strong> es un conjunto coherente de indicadores y gráficos para monitorear
+      un proceso o área (ventas, calidad, operaciones). No es un álbum de gráficos sueltos.
+    </p>
+
+    <h3>Principios de diseño</h3>
+    <table>
+      <thead>
+        <tr><th>Principio</th><th>Práctica</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Audiencia</td><td>Define quién decide con el tablero</td></tr>
+        <tr><td>Jerarquía</td><td>KPI arriba; detalle abajo o en drill-down</td></tr>
+        <tr><td>Pocos indicadores</td><td>5–9 elementos visibles sin scroll excesivo</td></tr>
+        <tr><td>Consistencia</td><td>Mismos colores, formatos de fecha y unidades</td></tr>
+        <tr><td>Acción</td><td>Cada vista debe sugerir “qué hacer si se pone rojo”</td></tr>
+        <tr><td>Actualización</td><td>Indica frescura de los datos</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Tipos de visual frecuentes en tableros</h3>
+    <ul>
+      <li>Tarjetas de KPI (valor actual vs meta / periodo anterior).</li>
+      <li>Tendencias (líneas).</li>
+      <li>Comparaciones (barras).</li>
+      <li>Composición (apiladas o treemap con moderación).</li>
+      <li>Mapas (si hay dimensión geográfica).</li>
+    </ul>
+
+    <h3>Herramientas</h3>
+    <ul>
+      <li><strong>Python:</strong> Plotly, Dash, Streamlit (prototipos).</li>
+      <li><strong>Power BI / Tableau:</strong> tableros corporativos (tema 4 profundiza Power BI).</li>
+    </ul>
+
+    <div class="card warning">
+      <strong>Errores comunes:</strong> demasiados colores, ejes cortados engañosos, pie charts excesivos,
+      KPIs sin contexto, falta de filtros de tiempo, gráficos 3D decorativos sin valor analítico.
+    </div>
+
+    <p style="margin-top:2rem;">
+      <a class="btn btn-outline" href="03-proyeccion-no-lineal.html">← Anterior</a>
+      <a class="btn" href="05-caso-practico.html">Siguiente: Caso práctico →</a>
+    </p>
+  </main>
+
+  <footer>
+    <p>Material generado para la asignatura GAD-2401 · Uso educativo</p>
+  </footer>
+</body>
+</html>

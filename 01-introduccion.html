@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1. Introducción | Visualización de datos</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters: [{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Tema 3: Visualización de datos</h1>
+      <p>1. Introducción</p>
+    </div>
+  </header>
+
+  <nav>
+    <div class="container">
+      <a href="index.html">Inicio</a>
+      <a href="01-introduccion.html" class="active">1. Introducción</a>
+      <a href="02-proyeccion-lineal.html">2. Proyección lineal</a>
+      <a href="03-proyeccion-no-lineal.html">3. Proyección no lineal</a>
+      <a href="04-periodicos-dashboards.html">4. Periódicos y tableros</a>
+      <a href="05-caso-practico.html">5. Caso práctico</a>
+      <a href="ejercicios/ejercicios-manuales.html">Ejercicios</a>
+    </div>
+  </nav>
+
+  <main>
+    <h2>¿Por qué visualizar?</h2>
+    <p>
+      Una tabla de 50 variables y 10&nbsp;000 filas no se “lee” de un vistazo. La visualización
+      resume estructura: clusters, outliers, tendencias, estacionalidad y relaciones entre variables.
+    </p>
+    <ul>
+      <li><strong>Exploración (EDA):</strong> descubrir qué preguntar.</li>
+      <li><strong>Diagnóstico:</strong> validar modelos y datos (residuos, balance de clases).</li>
+      <li><strong>Comunicación:</strong> transmitir hallazgos a públicos técnicos y no técnicos.</li>
+    </ul>
+
+    <h2>Principios básicos de diseño</h2>
+    <table>
+      <thead>
+        <tr><th>Principio</th><th>Aplicación práctica</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Claridad</td><td>Un mensaje principal por gráfico; evita sobrecargar</td></tr>
+        <tr><td>Integridad</td><td>No distorsionar escalas; mostrar incertidumbre cuando importe</td></tr>
+        <tr><td>Comparabilidad</td><td>Mismas escalas y colores entre paneles relacionados</td></tr>
+        <tr><td>Accesibilidad</td><td>Contraste, etiquetas legibles, no solo color</td></tr>
+        <tr><td>Contexto</td><td>Títulos, unidades, fuente de datos, periodo</td></tr>
+      </tbody>
+    </table>
+
+    <h2>El problema de la alta dimensión</h2>
+    <p>
+      Con 2 o 3 variables podemos graficar scatter plots o superficies.
+      Con decenas de variables necesitamos <strong>reducir dimensión</strong> proyectando los datos
+      a 2D o 3D de forma que se conserve (en la medida de lo posible) la estructura relevante.
+    </p>
+    <div class="card highlight">
+      <ul style="margin-bottom:0;">
+        <li><strong>Proyección lineal:</strong> PCA, MDS clásico — transformaciones lineales o basadas en distancias euclidianas.</li>
+        <li><strong>Proyección no lineal:</strong> t-SNE, UMAP, Isomap — mejor para estructuras curvas o manifolds.</li>
+      </ul>
+    </div>
+
+    <h2>Herramientas en este curso</h2>
+    <table>
+      <thead>
+        <tr><th>Biblioteca</th><th>Uso típico</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Matplotlib</td><td>Gráficos base, control fino</td></tr>
+        <tr><td>Seaborn</td><td>Estadística exploratoria (heatmaps, pairplots)</td></tr>
+        <tr><td>Plotly</td><td>Gráficos interactivos</td></tr>
+        <tr><td>scikit-learn</td><td>PCA, MDS, t-SNE</td></tr>
+        <tr><td>Power BI (tema 4)</td><td>Tableros empresariales</td></tr>
+      </tbody>
+    </table>
+
+    <div class="nota">
+      Visualizar no sustituye el análisis numérico: complementa correlación, pruebas y modelos.
+      Un buen gráfico sugiere hipótesis; no las “demuestra” por sí solo.
+    </div>
+
+    <p style="margin-top:2rem;">
+      <a class="btn" href="02-proyeccion-lineal.html">Siguiente: Proyección lineal →</a>
+    </p>
+  </main>
+
+  <footer>
+    <p>Material generado para la asignatura GAD-2401 · Uso educativo</p>
+  </footer>
+</body>
+</html>

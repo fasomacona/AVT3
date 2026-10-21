@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tema 3: Visualización de datos | GAD-2401</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters: [{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Tema 3: Visualización de datos</h1>
+      <p>Análisis y visualización de datos (GAD-2401) · Proyecciones, series y tableros</p>
+    </div>
+  </header>
+
+  <nav>
+    <div class="container">
+      <a href="index.html" class="active">Inicio</a>
+      <a href="01-introduccion.html">1. Introducción</a>
+      <a href="02-proyeccion-lineal.html">2. Proyección lineal</a>
+      <a href="03-proyeccion-no-lineal.html">3. Proyección no lineal</a>
+      <a href="04-periodicos-dashboards.html">4. Periódicos y tableros</a>
+      <a href="05-caso-practico.html">5. Caso práctico</a>
+      <a href="ejercicios/ejercicios-manuales.html">Ejercicios</a>
+    </div>
+  </nav>
+
+  <main>
+    <h2>Bienvenido al tema</h2>
+    <p>
+      La <strong>visualización de datos</strong> transforma tablas y resultados numéricos en representaciones
+      gráficas que facilitan detectar patrones, outliers, agrupaciones y tendencias.
+      En este tema se estudian métodos para reducir dimensionalidad (proyecciones lineales y no lineales),
+      visualizar datos con estructura periódica y construir tableros (dashboards).
+    </p>
+
+    <div class="card highlight">
+      <h3 style="margin-top:0;">Objetivos de aprendizaje</h3>
+      <ol>
+        <li>Aplicar <strong>escala multidimensional (MDS)</strong> y <strong>PCA</strong> para visualizar datos multivariados (3.1).</li>
+        <li>Comprender métodos de proyección <strong>no lineal</strong> (p. ej. t-SNE, UMAP) y cuándo usarlos (3.2).</li>
+        <li>Visualizar series o señales con componente <strong>periódica</strong> e introducir el análisis espectral básico (3.3).</li>
+        <li>Diseñar principios de <strong>tableros (dashboards)</strong> efectivos (3.3).</li>
+        <li>Integrar técnicas en un <strong>caso práctico</strong> reproducible (3.4).</li>
+      </ol>
+    </div>
+
+    <h2>Contenido del tema</h2>
+    <div class="grid">
+      <div class="card">
+        <h4><a href="01-introduccion.html">1. Introducción</a></h4>
+        <p>Principios de visualización y el rol de la reducción de dimensión.</p>
+      </div>
+      <div class="card">
+        <h4><a href="02-proyeccion-lineal.html">2. Proyección lineal (3.1)</a></h4>
+        <p>MDS y visualización de componentes principales (PCA).</p>
+      </div>
+      <div class="card">
+        <h4><a href="03-proyeccion-no-lineal.html">3. Proyección no lineal (3.2)</a></h4>
+        <p>t-SNE, UMAP y comparación con métodos lineales.</p>
+      </div>
+      <div class="card">
+        <h4><a href="04-periodicos-dashboards.html">4. Periódicos y tableros (3.3)</a></h4>
+        <p>Análisis espectral básico y construcción de dashboards.</p>
+      </div>
+      <div class="card">
+        <h4><a href="05-caso-practico.html">5. Caso práctico (3.4)</a></h4>
+        <p>Pipeline completo de visualización exploratoria.</p>
+      </div>
+      <div class="card">
+        <h4><a href="ejercicios/ejercicios-manuales.html">Ejercicios</a></h4>
+        <p>Decisiones de diseño y ejercicios en cuaderno.</p>
+      </div>
+    </div>
+
+    <h2>Práctica en Jupyter</h2>
+    <div class="card success">
+      <p>
+        PCA, MDS, comparación con t-SNE (si está disponible), series periódicas y gráficos con
+        Matplotlib, Seaborn y Plotly.
+      </p>
+      <a class="btn" href="practica/practica_visualizacion.ipynb" download>Descargar practica_visualizacion.ipynb</a>
+      <p style="margin-top:1rem; font-size:0.9rem; color:var(--text-light);">
+        Ábrelo en <a href="https://colab.research.google.com" target="_blank">Google Colab</a>
+      </p>
+    </div>
+
+    <div class="nota">
+      <strong>Prerrequisitos:</strong> Temas 1–2 (datos, correlación). Conocimientos básicos de álgebra
+      (vectores, matrices) ayudan en PCA/MDS, pero el enfoque aquí es interpretativo y práctico.
+    </div>
+  </main>
+
+  <footer>
+    <p>Material generado para la asignatura GAD-2401 · Uso educativo · 2026</p>
+  </footer>
+</body>
+</html>

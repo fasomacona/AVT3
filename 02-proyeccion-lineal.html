@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2. Proyección lineal | Visualización de datos</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters: [{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Tema 3: Visualización de datos</h1>
+      <p>3.1 Métodos de proyección lineal</p>
+    </div>
+  </header>
+
+  <nav>
+    <div class="container">
+      <a href="index.html">Inicio</a>
+      <a href="01-introduccion.html">1. Introducción</a>
+      <a href="02-proyeccion-lineal.html" class="active">2. Proyección lineal</a>
+      <a href="03-proyeccion-no-lineal.html">3. Proyección no lineal</a>
+      <a href="04-periodicos-dashboards.html">4. Periódicos y tableros</a>
+      <a href="05-caso-practico.html">5. Caso práctico</a>
+      <a href="ejercicios/ejercicios-manuales.html">Ejercicios</a>
+    </div>
+  </nav>
+
+  <main>
+    <h2>3.1.1 Escala multidimensional (MDS)</h2>
+    <p>
+      El <strong>Multidimensional Scaling (MDS)</strong> busca representar objetos en un plano (o espacio de baja dimensión)
+      de modo que las <strong>distancias</strong> entre puntos se aproximen a las disimilitudes originales entre objetos.
+    </p>
+    <div class="card highlight">
+      <p style="margin-bottom:0;">
+        <strong>Entrada:</strong> matriz de distancias o disimilitudes \( D \) entre \( n \) objetos.<br>
+        <strong>Salida:</strong> coordenadas en 2D/3D \( \mathbf{y}_1, \ldots, \mathbf{y}_n \) tales que
+        \( \|\mathbf{y}_i - \mathbf{y}_j\| \approx d_{ij} \).
+      </p>
+    </div>
+    <p>
+      En el <strong>MDS clásico</strong> (métrico) se parte de distancias euclidianas y se obtiene una solución
+      relacionada con la descomposición espectral de una matriz derivada de \( D \). Es útil para:
+    </p>
+    <ul>
+      <li>Mapas de percepción (productos según similitud percibida).</li>
+      <li>Visualizar proximidad entre documentos, clientes o sensores.</li>
+      <li>Explorar estructura cuando ya se tiene una matriz de distancias.</li>
+    </ul>
+    <p>
+      <strong>Estrés (stress):</strong> mide qué tan bien las distancias en el mapa reproducen las originales.
+      Valores bajos indican mejor ajuste.
+    </p>
+
+    <h2>3.1.2 Visualización de los componentes principales (PCA)</h2>
+    <p>
+      El <strong>Análisis de Componentes Principales (PCA)</strong> encuentra direcciones ortogonales
+      (componentes) que maximizan la varianza de los datos. Proyectar sobre los dos primeros componentes
+      produce un scatter 2D muy usado en EDA.
+    </p>
+    <div class="math-block">
+      $$ \mathbf{X} \approx \mathbf{T}\,\mathbf{P}^\top $$
+    </div>
+    <p>
+      donde \( \mathbf{T} \) son los <em>scores</em> (coordenadas de las observaciones) y \( \mathbf{P} \) los
+      <em>loadings</em> (pesos de las variables originales en cada componente).
+    </p>
+
+    <h3>Interpretación para visualización</h3>
+    <ul>
+      <li><strong>PC1 vs PC2:</strong> mapa de observaciones; colores/formas por clase o segmento.</li>
+      <li><strong>Varianza explicada:</strong> \( \lambda_k / \sum \lambda_j \) — qué porcentaje de varianza captura cada eje.</li>
+      <li><strong>Biplot:</strong> observaciones y flechas de variables en el mismo plano (dirección = contribución).</li>
+    </ul>
+
+    <h3>Pasos prácticos</h3>
+    <ol>
+      <li>Estandarizar variables (misma escala) salvo que las unidades deban preservarse a propósito.</li>
+      <li>Ajustar PCA y revisar varianza acumulada.</li>
+      <li>Graficar scores en PC1–PC2 (y PC3 si hace falta).</li>
+      <li>Inspeccionar loadings para interpretar los ejes.</li>
+    </ol>
+
+    <h2>MDS vs PCA (resumen)</h2>
+    <table>
+      <thead>
+        <tr><th>Aspecto</th><th>PCA</th><th>MDS clásico</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Entrada típica</td><td>Matriz de datos \( n \times p \)</td><td>Matriz de distancias \( n \times n \)</td></tr>
+        <tr><td>Objetivo</td><td>Maximizar varianza proyectada</td><td>Preservar distancias</td></tr>
+        <tr><td>Relación</td><td colspan="2">Con distancias euclidianas, MDS clásico y PCA están estrechamente relacionados</td></tr>
+        <tr><td>Uso visual</td><td>EDA estándar, biplots</td><td>Cuando solo hay disimilitudes</td></tr>
+      </tbody>
+    </table>
+
+    <div class="nota">
+      PCA y MDS son <strong>lineales</strong> (o lineales en el espacio de distancias euclidianas):
+      si la estructura real es muy curva, proyecciones no lineales pueden separarla mejor.
+    </div>
+
+    <p style="margin-top:2rem;">
+      <a class="btn btn-outline" href="01-introduccion.html">← Anterior</a>
+      <a class="btn" href="03-proyeccion-no-lineal.html">Siguiente: Proyección no lineal →</a>
+    </p>
+  </main>
+
+  <footer>
+    <p>Material generado para la asignatura GAD-2401 · Uso educativo</p>
+  </footer>
+</body>
+</html>

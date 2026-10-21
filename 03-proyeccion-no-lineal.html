@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3. Proyección no lineal | Visualización de datos</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters: [{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Tema 3: Visualización de datos</h1>
+      <p>3.2 Métodos de proyección no lineal</p>
+    </div>
+  </header>
+
+  <nav>
+    <div class="container">
+      <a href="index.html">Inicio</a>
+      <a href="01-introduccion.html">1. Introducción</a>
+      <a href="02-proyeccion-lineal.html">2. Proyección lineal</a>
+      <a href="03-proyeccion-no-lineal.html" class="active">3. Proyección no lineal</a>
+      <a href="04-periodicos-dashboards.html">4. Periódicos y tableros</a>
+      <a href="05-caso-practico.html">5. Caso práctico</a>
+      <a href="ejercicios/ejercicios-manuales.html">Ejercicios</a>
+    </div>
+  </nav>
+
+  <main>
+    <h2>¿Cuándo no basta lo lineal?</h2>
+    <p>
+      Si los datos viven sobre una superficie curva (manifold) o forman clusters con formas complejas,
+      PCA/MDS pueden mezclar grupos que en el espacio original están separados a lo largo de caminos no rectos.
+    </p>
+
+    <h2>t-SNE (t-distributed Stochastic Neighbor Embedding)</h2>
+    <p>
+      Construye probabilidades de vecindad en el espacio original y en el mapa 2D/3D, y minimiza la
+      divergencia entre ambas. Destaca <strong>estructura local</strong> (clusters).
+    </p>
+    <ul>
+      <li><strong>Fortaleza:</strong> separa bien grupos en visualización exploratoria.</li>
+      <li><strong>Limitaciones:</strong> distancias globales poco fiables; dependiente de hiperparámetros
+        (<code>perplexity</code>); no es determinista; costoso en \( n \) muy grande.</li>
+      <li><strong>Uso:</strong> explorar etiquetas, detectar outliers visuales, no como entrada directa a modelos predictivos.</li>
+    </ul>
+
+    <h2>UMAP (Uniform Manifold Approximation and Projection)</h2>
+    <p>
+      Alternativa moderna a t-SNE: suele ser más rápida, preservar algo más de estructura global
+      y escalar mejor. También tiene hiperparámetros (<code>n_neighbors</code>, <code>min_dist</code>).
+    </p>
+
+    <h2>Otros métodos (referencia)</h2>
+    <table>
+      <thead>
+        <tr><th>Método</th><th>Idea breve</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Isomap</td><td>Distancias geodésicas sobre el grafo de vecinos + MDS</td></tr>
+        <tr><td>LLE</td><td>Reconstrucción local lineal de cada punto</td></tr>
+        <tr><td>Kernel PCA</td><td>PCA en un espacio de características no lineal</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Comparación práctica</h2>
+    <table>
+      <thead>
+        <tr><th>Criterio</th><th>PCA / MDS</th><th>t-SNE / UMAP</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Tipo</td><td>Lineal (o métrico clásico)</td><td>No lineal</td></tr>
+        <tr><td>Estructura global</td><td>Mejor</td><td>Variable / limitada</td></tr>
+        <tr><td>Clusters locales</td><td>A veces insuficientes</td><td>Muy buenos (típ.)</td></tr>
+        <tr><td>Interpretabilidad de ejes</td><td>Alta (loadings)</td><td>Baja</td></tr>
+        <tr><td>Reproducibilidad</td><td>Alta</td><td>Depende de semilla/params</td></tr>
+        <tr><td>Uso en reportes formales</td><td>Muy frecuente</td><td>Exploratorio con matices</td></tr>
+      </tbody>
+    </table>
+
+    <div class="card warning">
+      <h3 style="margin-top:0;">Precauciones</h3>
+      <ul style="margin-bottom:0;">
+        <li>No interpretar distancias entre clusters lejanos en t-SNE como “magnitudes reales”.</li>
+        <li>Documentar hiperparámetros y semilla.</li>
+        <li>Complementar siempre con métricas y gráficos más simples (histogramas, correlaciones).</li>
+      </ul>
+    </div>
+
+    <div class="nota">
+      En la práctica del notebook se compara PCA y MDS; t-SNE se incluye cuando el entorno tiene
+      <code>sklearn.manifold.TSNE</code> disponible.
+    </div>
+
+    <p style="margin-top:2rem;">
+      <a class="btn btn-outline" href="02-proyeccion-lineal.html">← Anterior</a>
+      <a class="btn" href="04-periodicos-dashboards.html">Siguiente: Periódicos y tableros →</a>
+    </p>
+  </main>
+
+  <footer>
+    <p>Material generado para la asignatura GAD-2401 · Uso educativo</p>
+  </footer>
+</body>
+</html>

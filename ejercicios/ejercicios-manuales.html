@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicios manuales | Visualización de datos</title>
+  <link rel="stylesheet" href="../css/estilos.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters: [{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Tema 3: Visualización de datos</h1>
+      <p>Ejercicios manuales (cuaderno)</p>
+    </div>
+  </header>
+
+  <nav>
+    <div class="container">
+      <a href="../index.html">Inicio</a>
+      <a href="../01-introduccion.html">1. Introducción</a>
+      <a href="../02-proyeccion-lineal.html">2. Proyección lineal</a>
+      <a href="../03-proyeccion-no-lineal.html">3. Proyección no lineal</a>
+      <a href="../04-periodicos-dashboards.html">4. Periódicos y tableros</a>
+      <a href="../05-caso-practico.html">5. Caso práctico</a>
+      <a href="ejercicios-manuales.html" class="active">Ejercicios</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="card warning">
+      <p style="margin-bottom:0;">
+        Responde en el cuaderno con frases completas. Cuando se pida un método, <strong>justifica</strong> la elección.
+      </p>
+    </div>
+
+    <h2>Ejercicio 1 – Elegir el método</h2>
+    <ol>
+      <li>Dataset con 12 variables numéricas de sensores; quieres un mapa 2D exploratorio e interpretar qué variables importan.</li>
+      <li>Solo tienes una matriz de disimilitud entre 30 marcas (encuesta de percepción).</li>
+      <li>Quieres ver si clases no lineales se separan visualmente y no necesitas interpretar los ejes.</li>
+      <li>Serie diaria de visitas web de 2 años; sospechas patrón semanal.</li>
+    </ol>
+
+    <h2>Ejercicio 2 – Interpretar PCA</h2>
+    <p>Un PCA reporta: PC1 48 % de varianza, PC2 22 %. Los loadings altos en PC1 son “ingreso” y “monto de compra”; en PC2 “edad” (positivo) y “uso de app móvil” (negativo).</p>
+    <ol>
+      <li>¿Qué porcentaje acumulan PC1+PC2?</li>
+      <li>Propón una interpretación breve de cada eje.</li>
+      <li>¿Qué precaución darías al negocio al usar solo el scatter PC1–PC2?</li>
+    </ol>
+
+    <h2>Ejercicio 3 – Crítica de un dashboard</h2>
+    <p>Un tablero tiene 18 gráficos en una pantalla, 4 pie charts 3D, ejes de ventas que empiezan en 900 (no en 0) y ningún filtro de fecha.</p>
+    <ol>
+      <li>Lista al menos cinco problemas de diseño.</li>
+      <li>Propón una estructura de tablero con máximo 6 elementos para un gerente de ventas.</li>
+    </ol>
+
+    <h2>Ejercicio 4 – t-SNE vs PCA</h2>
+    <p>En un scatter t-SNE dos clusters están muy lejos; en PCA aparecen más solapados.</p>
+    <ol>
+      <li>¿Puedes concluir que “la distancia entre clusters es grande en la realidad”? ¿Por qué?</li>
+      <li>Qué reportarías en un informe técnico.</li>
+    </ol>
+
+    <h2>Ejercicio 5 – Caso periódico</h2>
+    <p>El espectro de una serie de temperatura muestra un pico dominante en frecuencia correspondiente a periodo ≈ 365 días y otro menor ≈ 1 día.</p>
+    <ol>
+      <li>Interpreta ambos picos en lenguaje cotidiano.</li>
+      <li>¿Qué gráficos temporales usarías para comunicarlo a un público no técnico?</li>
+    </ol>
+
+    <div class="card success" style="margin-top:2rem;">
+      <a class="btn" href="../practica/practica_visualizacion.ipynb" download>Descargar notebook</a>
+      <a class="btn btn-outline" href="../index.html">Volver al inicio</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>Material generado para la asignatura GAD-2401 · Uso educativo</p>
+  </footer>
+</body>
+</html>
